@@ -1,0 +1,1 @@
+{"attributes": {}, "zarr_format": 3, "node_type": "group", "links": [{"href": "../../../../zarr.json", "rel": "root"}, {"href": "../zarr.json", "rel": "parent"}, {"href": "./zarr.json", "rel": "self"}, {"href": "./bands/zarr.json", "rel": "array"}]}
