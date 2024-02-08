@@ -15,6 +15,7 @@ class ZarrLink(BaseModel):
     href: str
     rel: Literal["root", "parent", "self", "array", "group"]
 
+
 class ZarrGroupJSON(BaseModel):
     """Used to verify that the input is a valid Zarr JSON"""
 
@@ -85,8 +86,8 @@ def read_zarr_group_json(file_path: Path) -> ZarrGroupJSON:
     zarr_json = json.loads(file_path.read_text())
     return ZarrGroupJSON(**zarr_json, parent_dir=parent_dir)
 
+
 def read_zarr_array_json(file_path: Path) -> ZarrArrayJSON:
     parent_dir = file_path.parent
     zarr_json = json.loads(file_path.read_text())
     return ZarrArrayJSON(**zarr_json, parent_dir=parent_dir)
-
