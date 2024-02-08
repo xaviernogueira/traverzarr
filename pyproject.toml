@@ -22,12 +22,6 @@ dependencies = [
     "pydantic",
 ]
 
-#dev-dependencies = [
-#    "pytest",
-#    "pytest-cov",
-#    "black",
-#]
-
 dynamic = [
     "version",
     "readme",
