@@ -22,7 +22,7 @@ class ZarrGroupJSON(BaseModel):
     attributes: dict
     zarr_format: ZarrVersions
     parent_dir: Path
-    node_type: Literal['group'] 
+    node_type: Literal["group"]
     links: list[ZarrLink]
 
     @property
@@ -72,7 +72,7 @@ class ZarrGroupJSON(BaseModel):
 
 
 class ZarrArrayJSON(ZarrGroupJSON):
-    node_type: Literal['array']
+    node_type: Literal["array"]
     shape: list[int]
     data_type: str
     chunk_grid: dict

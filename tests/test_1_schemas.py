@@ -3,7 +3,6 @@ from pathlib import Path
 import traverzarr
 
 
-
 def test_group_schema(test_json_path, zarr_json_dict: dict) -> None:
     zarr = traverzarr.read_zarr_group_json(test_json_path)
     assert zarr.attributes == zarr_json_dict["attributes"]

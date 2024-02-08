@@ -5,6 +5,7 @@ from pathlib import Path
 
 TEST_DATA = Path(__file__).parent / "test_data"
 
+
 @pytest.fixture
 def test_json_path() -> Path:
     return TEST_DATA / "zarr.json"
@@ -21,4 +22,3 @@ def test_imports() -> None:
     assert traverzarr.schema.ZarrGroupJSON
     assert traverzarr.schema.ZarrArrayJSON
     assert traverzarr.schema.ZarrLink
-

@@ -1,14 +1,15 @@
 from typing import Literal, Optional, get_args
 from .schema import ZarrGroupJSON
 
-SearchTypes = Literal['contains', 'startswith', 'endswith', 'regex']
-SearchAlgos = Literal['depth_first', 'breadth_first']
+SearchTypes = Literal["contains", "startswith", "endswith", "regex"]
+SearchAlgos = Literal["depth_first", "breadth_first"]
+
 
 def search_zarr_group(
-    zarr_group: ZarrGroupJSON, 
+    zarr_group: ZarrGroupJSON,
     pattern: str,
-    how: Optional[SearchTypes],
-    algo: Optional[SearchAlgos],
+    how: Optional[SearchTypes] = "contains",
+    algo: Optional[SearchAlgos] = "depth_first",
 ) -> ZarrGroupJSON:
     """Searches for string patterns in sub-group href.
 
@@ -22,13 +23,14 @@ def search_zarr_group(
         The ZarrGroupJSON object that contains the pattern.
     """
     if not isinstance(zarr_group, ZarrGroupJSON):
-        raise ValueError('zarr_group must be a ZarrGroupJSON object')
+        raise ValueError("zarr_group must be a ZarrGroupJSON object")
     if not isinstance(pattern, str):
-        raise ValueError('pattern must be a string')
+        raise ValueError("pattern must be a string")
+    elif not pattern:
+        raise ValueError("pattern cannot be empty")
     if how not in get_args(SearchTypes):
-        raise ValueError(f'how must be one of {SearchTypes}')
+        raise ValueError(f"how must be one of {SearchTypes}")
     if algo not in get_args(SearchAlgos):
-        raise ValueError(f'algo must be one of {SearchAlgos}')
+        raise ValueError(f"algo must be one of {SearchAlgos}")
 
     return ZarrGroupJSON
-
