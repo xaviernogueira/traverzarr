@@ -1,0 +1,39 @@
+[build-system]
+requires = [
+    "setuptools",
+    "setuptools-scm",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "traverzarr"
+description = "Traverse a Zarr v3 JSON file like it's a filesystem"
+requires-python = ">=3.11"
+keywords = [
+    "pydantic",
+    "geospatial",
+    "zarr",
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "pydantic",
+]
+
+#dev-dependencies = [
+#    "pytest",
+#    "pytest-cov",
+#    "black",
+#]
+
+dynamic = [
+    "version",
+    "readme",
+]
+
+[tool.setuptools_scm]
+
+[tool.setuptools.dynamic]
+readme = {file = "README.md"}
